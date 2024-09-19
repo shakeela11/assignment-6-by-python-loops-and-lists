@@ -1,86 +1,80 @@
-#Question no 3
-#*Write a program* that uses a while loop to print the first 25 integers.
+#PRACTICE OF ASSIGNMENT QUESTIONS
+#Question no 1
+#  a program* that uses a while loop to print the first 25 integers.
 count:int=1
-while count <= 25:
+while count<=25:
     print(count)
-    count += 1
+    count=count+1
 
-#Question no 4
-#*Write a program* that uses a while loop to print the first 10 even numbers.
+# Question no 2
+#  a program* that uses a while loop to print the first 10 even numbers
 count:int=1
 num:int=2
 while count<=10:
     print(num)
-    num+=2
-    count+=1
+    num=num+2
+    count=count+1
 
 # Question no 3
 #  *Write a program* that has an array of numbers; if the number is negative, it should remove the negative number from the array.
-nums:list[int]=[1,-2,-3,4,-5,6]
-for num in nums[1:6]:
-    if num <= 0:
+nums:list = [1, -2, -3, 4, 5, -6, -7, 8]
+positive_nums = []
+for num in nums:
+    if num >= 0:
+        positive_nums.append(num)
+nums = positive_nums
+print(nums)
+
+# Question no 4
+# a function* that takes a positive integer as a parameter and uses a while loop to calculate and return the factorial of that number
+n:int=int(input("enter a number to find the factorial of that num= "))
+def factorial(n):
+    result = 1  
+    while n > 0:
+        result *= n  
+        n -= 1  
+    return result 
+print(factorial(n))  
+
+# Question no 5
+#  a program* to remove all the odd numbers from an array
+nums:list=[1,2,3,4,5,6,7,8,]
+for num in nums:
+    if num % 2!= 0:
         nums.remove(num)
 print(nums)
 
-# Question no 5
-# *create a function* that takes a positive integer as a parameter and uses a while loop to calculate and return the factorial of that number
-def num(Number)->int:
-     count = 1
-     result=1
-     while (count <= Number):
-          result = result * count
-          count = count + 1
-     return result
-print(num(2)) 
+# Question no 6 
+# a function* that takes an array, an index, and a value as parameters. Inside the function, use the insert method to insert the value at the specified index in the array. Return the modified array
+def insert_value(array,index,value):
+    array.insert(index,value)
+    return array
+print(insert_value([1,2,3,4,5,6,7,8,9,10],2, 5))
 
-#Question no 9
-# *create a program* to remove all the odd numbers from an array.
-numbers:list[int]=[1,2,3,4,5,6,7,8,9]
-for num in numbers:
-    if num % 2 != 0:
-        numbers.remove(num)
-print(numbers)
+# Question no 7
+#a function* that takes an array of numbers as a parameter. Use a while loop to calculate and return the sum of all the numbers in the array
+def sum_of_num(array):
+    total=0
+    i=0
+    while i<len(array):
+        total+=array[i]
+        i+=1
+    return total
+print(sum_of_num([1,2,3,4,5,6,7,8]))
 
-#Question no 1
-# *create a function* that takes an array, an index, and a value as parameters. Inside the function, use the insert method to insert the value at the specified index in the array. Return the modified array
-def insert_value(arr, index, num):
-    arr.insert(index, num)
-    return arr
+# Question no 8
+#Implement a program* that takes a list of temperatures in Celsius as input from the user. Convert each temperature to Fahrenheit using the formula F = (C * 9/5) + 32 and store the converted temperatures in an array. Use a while loop to perform the conversion for each temperature.
+def celsius_to_farenheit(celsius_temp):
+    i=0
+    while i<len(celsius_temp):
+        celsius_temp[i]=(celsius_temp[i]* 9/5) + 32 
+        i+=1
+        return celsius_temp
+celsius_input = input("Celsius temperatures= ")
+celsius_list = [float(temp) for temp in celsius_input.split(',')] 
+print("Fahrenheit temperatures:", celsius_to_farenheit(celsius_list))
 
-print(insert_value([1, 2, 3, 4, 5], 0, 5))
-
-#Question no 7
-#  *create a function* that takes an array of numbers as a parameter. Use a while loop to calculate and return the sum of all the numbers in the array
-def nums(array):
- count=0
- total=0   
- while count<len(array):
-   count+=1
-   total+=array[count-1]
- return total
-print(nums([1,2,3,4,5]))
-
-
-#Question no 8
-# Implement a program* that takes a list of temperatures in Celsius as input from the user. Convert each temperature to Fahrenheit using the formula F = (C * 9/5) + 32 and store the converted temperatures in an array. Use a while loop to perform the conversion for each temperature.
-celsius_temperatures = []
-while True:
-  temp = input("Enter temperature in Celsius (or 'done' to finish): ")
-  if temp == 'done':
-    break
-  celsius_temperatures.append(float(temp))
-
-fahrenheit_temperatures = []
-i = 0
-while i < len(celsius_temperatures):
-  celsius = celsius_temperatures[i]
-  fahrenheit = (celsius * 9/5) + 32
-  fahrenheit_temperatures.append(fahrenheit)
-  i += 1
-
-print("Temperatures in Fahrenheit:", fahrenheit_temperatures)
-
-# Question no 2
+# Question no 9
 # Implement a simple shopping cart program using an array. Create functions to add items, remove items, and update quantities using array methods. Print the cart's contents after each operation
 cart = []
 def add_item(item):
@@ -92,7 +86,7 @@ def remove_item(item):
 def update_quantity(item, quantity):
   cart[cart.index(item)] = (item, quantity)
   print(cart)
-add_item('apple')
-add_item('banana')
-remove_item('banana')
-update_quantity('apple', 2)
+add_item('chocolate')
+add_item('mango')
+remove_item('mango')
+update_quantity('chocolate', 2)
